@@ -378,11 +378,7 @@ def run_gui() -> None:
         return sorted(int(i) for i in tree.selection())
 
     def add_files() -> None:
-        paths = filedialog.askopenfilenames(filetypes=[
-            ("All files", "*.*"),
-            ("Archives", "*.zip *.tar *.gz *.tgz *.bz2 *.xz *.7z"),
-            ("Documents", "*.txt *.md *.pdf *.docx *.pptx *.xlsx *.csv"),
-        ])
+        paths = filedialog.askopenfilenames(filetypes=[("All files", "*.*"), ("Archives", "*.zip *.tar *.gz *.tgz *.bz2 *.xz *.7z"), ("Documents", "*.txt *.md *.pdf *.docx *.pptx *.xlsx *.csv"),])
         items.extend(p for p in paths if p not in items)
         refresh()
 
@@ -411,8 +407,7 @@ def run_gui() -> None:
         if not items:
             messagebox.showinfo("Nothing to extract", "Add some files, folders or archives first.")
             return
-        out = filedialog.asksaveasfilename(defaultextension=".txt", initialfile="combined.txt",
-                                           filetypes=[("Text files", "*.txt"), ("All files", "*.*")])
+        out = filedialog.asksaveasfilename(defaultextension=".txt", initialfile="combined.txt", filetypes=[("Text files", "*.txt"), ("All files", "*.*")])
         if not out:
             return
         if any(Path(out).resolve() == Path(p).resolve() for p in items):
@@ -437,8 +432,7 @@ def run_gui() -> None:
         messagebox.showinfo("Done", msg)
 
     btns = ttk.Frame(root, padding=(8, 8, 8, 0))
-    for text, cmd in [("Add files…", add_files), ("Add folder…", add_folder), ("Remove", remove),
-                      ("Move up", lambda: move(-1)), ("Move down", lambda: move(1))]:
+    for text, cmd in [("Add files…", add_files), ("Add folder…", add_folder), ("Remove", remove), ("Move up", lambda: move(-1)), ("Move down", lambda: move(1))]:
         ttk.Button(btns, text=text, command=cmd).pack(side="left", padx=(0, 6))
     ttk.Button(btns, text="Extract →", command=extract).pack(side="right")
     btns.pack(fill="x")
