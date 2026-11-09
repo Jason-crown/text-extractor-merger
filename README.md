@@ -34,12 +34,12 @@ Run the script with no arguments:
 python text_extractor.py
 ```
 
-1. Click **Add files…** to add files or archives, or **Add folder…** to add everything in a folder.
-2. Change the order with **Move up** and **Move down**. Remove an item with **Remove** or the Delete key.
-3. Untick **Label each file with a header** if you want only the raw text.
-4. Click **Extract →** and choose where to save the result.
+1. To add your documents (files), folders or archives click on **Add Files…**, for adding all of the content within one folder, select **Add Folder…**
+2. The list can be reordered using buttons **Move Up**, **Move Down**. A single file may be removed by clicking on **Remove**, or pressing the delete button on your keyboard.
+3. If you are working with a very large number of files that need to be separated into individual headers based on their contents, uncheck **Label Each File With a Header** so you have only the raw data.
+4. When ready, click **Extract →** and select where the extracted document will be saved.
 
-When it finishes, a message shows how many files were written and which were skipped.
+Once complete, a notification will appear that includes the total amount of files successfully created from the original source as well as which items did not create a usable document.
 
 ### Command line
 
@@ -56,7 +56,7 @@ python text_extractor.py -o combined.txt lectures.zip notes.md project_folder/
 
 ## Output
 
-The output is a UTF-8 text file. Files appear in the order you added them; the contents of a folder or archive appear in their stored order. PDFs are split with `--- Page N ---`, slides with `--- Slide N ---` and spreadsheets with `--- Sheet N ---`.
+The output is a text file using UTF-8 encoding. The files will be listed in the same order that they were added to your project. A folder or zip archive will also have its contents presented as if they were stored in that way. Pages within pdf documents will be separated by `--- Page N ---`. Slides from pptx/pptm files will be separated by `--- Slide N ---`. Sheets in xlsx/xlsm/xltm files will be separated by `--- Sheet N ---`.
 
 ```
 ===== lectures.zip/week1/intro.txt =====
@@ -72,11 +72,11 @@ Welcome to the course...
 
 ## Limitations
 
-- RAR archives aren't supported. Convert them to `.zip` or `.7z` first.
-- Password-protected archives and PDFs can't be opened.
-- Scanned PDFs (images of text) have no text to extract and are skipped.
-- Old Office formats (`.doc`, `.ppt`, `.xls`) aren't supported; save them as `.docx`, `.pptx` or `.xlsx`.
-- Any single file over 100 MB inside an archive is skipped (a guard against "zip bombs"). Change `MAX_FILE_BYTES` at the top of the script to raise this.
+– RAR files cannot be processed. Please convert the RAR file to a .ZIP or .7Z file type prior to processing. 
+– Password protected RAR files, PDFs etc. will not open. 
+– When scanning PDFs (image of text), there is nothing for the software to pull from the image and therefore these files will be bypassed. 
+– Legacy Microsoft Office formats (.doc / .xls / ppt) are not compatible with our system. In order to use the legacy Microsoft office formats please save your documents in the new format (Office 2007/2010 formats). 
+– For security reasons we currently limit each individual file within a compressed package (i.e. zip, rar, tar etc.) to 100MB in size. This prevents users from uploading maliciously large packages that could consume all available disk space. The value for MAX_FILE_BYTES can be adjusted near the top of the script to increase this number if needed.
 
 ## Project structure
 
