@@ -1,6 +1,6 @@
 # Text Extractor
 
-A small Python tool that takes files, folders and compressed archives, pulls out all the text inside them, and writes it into one text file. It has a simple desktop window and a command-line mode, like [PDF Merger](../PDF_merger).
+Small Python tool to extract all text from given input of files (including .zip), folder and write in single txt-file. Desktop application with simple GUI as well as command line version, similar to [PDF Merger](../PDF_merger).
 
 ## Features
 
