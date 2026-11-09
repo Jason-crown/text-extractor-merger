@@ -4,13 +4,13 @@ Small Python tool to extract all text from given input of files (including .zip)
 
 ## Features
 
-- Opens `.zip`, `.tar`, `.tar.gz`/`.tgz`, `.tar.bz2`, `.tar.xz`, `.gz`, `.bz2`, `.xz` and (optionally) `.7z` archives
-- Handles archives inside archives (up to 5 levels deep)
-- Archives are read in memory, so nothing is unpacked onto your disk
-- Extracts text from plain-text files of any kind (`.txt`, `.md`, `.csv`, `.py`, `.json`, `.html`, …), PDFs, Word (`.docx`), PowerPoint (`.pptx`) and Excel (`.xlsx`)
-- Labels each file in the output with a header such as `===== notes.zip/week1/lecture.txt =====` (can be turned off)
-- Lists every file it skipped and why (images, other binary files, empty files, scanned PDFs)
-- Ignores clutter such as `__MACOSX/`, `.DS_Store` and `Thumbs.db`
+- Extracts content from archives like .zip, .tar, .tar.gz/.tgz, .tar.bz2, .tar.xz, .gz, .bz2, .xz and optionally .7z
+- Processes nested archive layers up to 5 levels deep
+- Unpacks no contents onto your hard drive; everything reads into RAM
+- Pulls plain-text data out of any type of plain-text file (.txt, .md, .csv, .py, .json, etc.) and PDFs, MS Word docs (.docx), MS PowerPoint slideshows (.pptx) & MS Excel spreadsheets (.xlsx)
+- Adds a label at the top of each extracted file (such as "===== notes.zip/week1/lecture.txt =====") or omits if you prefer
+- Provides an inventory list for all files that were excluded and the reasons they were omitted (e.g. images, other binary files, empty files, scanned PDFs)
+- Disregards common desktop clutter files (.macosx/, .ds_store & Thumbs.db)`
 
 ## Requirements
 
